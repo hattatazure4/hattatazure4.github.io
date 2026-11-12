@@ -97,7 +97,8 @@
 .vmore { margin-top: var(--s-7); }
 
 /* Ek paragraflar ve gruplar */
-.prose { display: grid; gap: var(--s-3); max-width: 52rem; margin: calc(-1 * var(--s-3)) 0 var(--s-7); color: var(--text-2); font-size: var(--fs-base, 1rem); line-height: 1.75; }
+/* Yalnız ürün sayfalarının giriş metni (Hakkımızda'daki .prose ile çakışmasın diye kapsamlı) */
+.fintro .prose { display: grid; gap: var(--s-3); max-width: 52rem; margin: calc(-1 * var(--s-3)) 0 var(--s-7); color: var(--text-2); font-size: var(--fs-base, 1rem); line-height: 1.75; }
 .grp { margin-top: var(--s-9); display: grid; gap: var(--s-6); }
 .grp__head p { color: var(--text-2); margin-top: 4px; }
 @media (min-width: 1040px) { .feat-grid--4 { grid-template-columns: repeat(4, 1fr); } }
