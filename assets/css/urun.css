@@ -61,7 +61,7 @@
 .acc__item summary:hover { color: var(--red); }
 .acc__item summary:focus-visible { outline: 2px solid var(--red); outline-offset: 2px; border-radius: 6px; }
 .acc__no { font-size: var(--fs-xs); font-weight: 600; letter-spacing: .12em; color: var(--red); }
-.acc__t { font-weight: 600; font-size: 1.0625rem; line-height: 1.35; }
+.acc__t { font-weight: 600; font-size: var(--fs-lg); line-height: 1.35; }
 .acc__b { padding: 0 4px 22px 56px; display: grid; gap: var(--s-4); justify-items: start; max-width: 64rem; }
 .acc__b p { color: var(--text-2); font-size: var(--fs-sm); line-height: 1.75; }
 .acc__vid { display: inline-flex; align-items: center; gap: 8px; padding: 8px 14px; border-radius: 99px; border: 1px solid var(--line); background: var(--white); font: inherit; font-size: var(--fs-sm); font-weight: 600; cursor: pointer; transition: border-color .4s var(--ease-soft), color .4s var(--ease-soft); }

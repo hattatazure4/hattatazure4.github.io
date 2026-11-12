@@ -50,8 +50,8 @@ ul, ol { padding: 0; list-style: none; }
 main > section:nth-child(even) { background: var(--tone-bg-2); }
 main > section:nth-child(odd):not(:first-child) { background: var(--tone-bg); }
 /* Hücreli bantlar (Neden Hattat, hedefler, öne çıkanlar): beyaz bölümde gri, gri bölümde beyaz hücre */
-main > section:nth-child(even) :is(.why-cell, .goal, .hl__item) { background: var(--tone-bg); }
-main > section:nth-child(even) :is(.why-cell, .goal):hover { background: var(--tone-bg-2); }
+main > section:nth-child(even) :is(.why-cell, .hl__item) { background: var(--tone-bg); }
+main > section:nth-child(even) :is(.why-cell):hover { background: var(--tone-bg-2); }
 
 .section--dark { background: var(--tone-bg-2); color: var(--tone-text); }
 
@@ -127,3 +127,6 @@ main > section:nth-child(even) :is(.why-cell, .goal):hover { background: var(--t
 
 }
 
+/* Başlıklarda tek kelimelik yetim satır kalmasın ("1993'ten / beri."): satırlar dengeli bölünür; paragraflarda da tek kelime satır sonuna kalmaz. */
+h1, h2, h3 { text-wrap: balance; }
+p, li, blockquote { text-wrap: pretty; }

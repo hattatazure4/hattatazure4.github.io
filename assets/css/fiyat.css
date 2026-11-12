@@ -9,7 +9,7 @@
 @media (min-width: 1100px) { .pgrid--3 .price__head { min-height: 5.4rem; } }
 .price__type { font-size: var(--fs-xs); font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--red); }
 .price__badge { display: inline-block; padding: 4px 10px; border-radius: 12px; background: var(--surface); color: var(--text-2); font-size: var(--fs-xs); font-weight: 600; line-height: 1.35; }
-.price h3 { font-size: 1.375rem; font-weight: 600; letter-spacing: -.01em; line-height: 1.2; }
+.price h3 { font-size: var(--fs-h3); font-weight: 600; letter-spacing: -.01em; line-height: 1.2; }
 .price__amount { display: flex; align-items: baseline; flex-wrap: wrap; gap: 6px; padding-block: var(--s-3); border-block: 1px solid var(--line); }
 .price__amount b { font-size: clamp(1.875rem, 1.5rem + 1vw, 2.375rem); font-weight: 600; letter-spacing: -.01em; line-height: 1.1; white-space: nowrap; }
 .price__amount span { color: var(--text-2); font-size: var(--fs-sm); font-weight: 600; }
@@ -53,7 +53,7 @@
 .ptable__for { display: block; margin-top: 2px; font-size: var(--fs-sm); font-weight: 400; color: var(--text-3); }
 .ptable td { color: var(--text-2); font-size: .9375rem; line-height: 1.5; }
 .ptable__price b { font-size: 1.75rem; font-weight: 700; letter-spacing: -.01em; color: var(--text); white-space: nowrap; }
-.ptable__price b.ptable__text { font-size: 1.375rem; }
+.ptable__price b.ptable__text { font-size: var(--fs-h3); }
 .ptable__price span { color: var(--text-2); font-weight: 600; }
 .ptable__price small { display: block; margin-top: 4px; font-size: var(--fs-sm); color: var(--text-2); line-height: 1.4; }
 .ptable__act { text-align: right; white-space: nowrap; }

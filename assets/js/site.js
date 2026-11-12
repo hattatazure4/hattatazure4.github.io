@@ -383,7 +383,7 @@
     groups.forEach(function (g) {
       var kids = g.querySelectorAll(":scope > [data-reveal-item]");
       var cols = getComputedStyle(g).gridTemplateColumns.split(" ").length || 1;
-      kids.forEach(function (el, i) { add(el, (i % cols) * 90); });
+      kids.forEach(function (el, i) { add(el, 0); });
     });
 
     /* ızgaradaki öğeler: aynı satırda 90 ms arayla */
@@ -391,7 +391,7 @@
       var items = document.querySelectorAll(sel);
       if (!items.length) return;
       var cols = getComputedStyle(items[0].parentElement).gridTemplateColumns.split(" ").length || 1;
-      items.forEach(function (el, i) { add(el, (i % cols) * 90); });
+      items.forEach(function (el, i) { add(el, 0); });
     });
   }
 
