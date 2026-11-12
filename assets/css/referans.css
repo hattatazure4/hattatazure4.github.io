@@ -10,15 +10,16 @@
 .rgrid { column-count: 1; column-gap: var(--s-5); }
 @media (min-width: 760px) { .rgrid { column-count: 2; } }
 @media (min-width: 1100px) { .rgrid { column-count: 3; } }
-.rcard { break-inside: avoid; margin: 0 0 var(--s-5); padding: var(--s-6); border: 1px solid var(--line); border-radius: 14px; background: var(--white); display: grid; gap: var(--s-4); transition: border-color .6s var(--ease-soft), box-shadow .6s var(--ease-soft); }
-.rcard[hidden] { display: none; }
-.rcard:hover { border-color: var(--red); box-shadow: 0 18px 40px -28px rgba(17, 17, 17, .35); }
-.rcard__q { width: 28px; height: 28px; color: var(--red); }
-.rcard blockquote { margin: 0; }
-.rcard blockquote p { color: var(--text); font-size: var(--fs-md, 1rem); line-height: 1.7; }
-.rcard figcaption { display: grid; gap: 2px; padding-top: var(--s-4); border-top: 1px solid var(--line); }
-.rcard figcaption b { font-weight: 600; }
-.rcard figcaption span { color: var(--text-2); font-size: var(--fs-sm); }
+/* Kart, ana sayfadaki yorum kartının aynısı (sections.css .rcard: tırnak, avatar, sağ üstte silik "h");
+   burada yalnız ızgaraya uyarlanır: kaydırıcıdaki sabit genişlik/yükseklik ve soluk görünüm kalkar,
+   üzerine gelince ana sayfadaki etkin kart görünümü (kırmızı ton, kırmızı avatar, dolu "h") gelir. */
+.rgrid .rcard { flex: none; min-height: 0; opacity: 1; justify-content: flex-start; break-inside: avoid; margin: 0 0 var(--s-5); position: relative; isolation: isolate; overflow: hidden; }
+.rgrid .rcard[hidden] { display: none; }
+.rgrid .rcard::after { content: ""; position: absolute; z-index: -1; pointer-events: none; right: 24px; top: 24px; height: 88px; aspect-ratio: 380 / 585; background: url(/assets/img/mark-koyu.svg) center / contain no-repeat; }
+.rgrid .rcard blockquote { font-size: var(--fs-lg); line-height: 1.6; padding-right: 56px; }
+.rgrid .rcard:hover { background-image: radial-gradient(90% 70% at 100% 0%, rgba(228, 35, 32, .10), transparent 65%); box-shadow: 0 18px 36px rgba(17, 17, 17, .12), inset 0 0 0 1px rgba(228, 35, 32, .35); }
+.rgrid .rcard:hover::after { background-image: url(/assets/img/mark-dolu.svg); }
+.rgrid .rcard:hover .avatar { background: var(--red); color: var(--white); }
 .vlist__more { display: flex; justify-content: center; margin-top: var(--s-7); }
 .vlist__more .btn[hidden] { display: none; }
 
