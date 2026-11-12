@@ -1,0 +1,51 @@
+/* Yasal metinler, politika dosyaları, belgeler. Renk sırası: koyu (başlık) → beyaz (içerik) → koyu footer */
+.legal { display: grid; gap: var(--s-8); align-items: start; }
+@media (min-width: 1000px) { .legal { grid-template-columns: 260px minmax(0, 1fr); gap: var(--s-9); } }
+.legal__toc { position: sticky; top: 96px; display: grid; gap: var(--s-3); padding: var(--s-5); border: 1px solid var(--line); border-radius: 14px; background: var(--white); }
+.legal__toc p { font-size: var(--fs-xs); font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--red); }
+.legal__toc ul { display: grid; gap: 4px; }
+.legal__toc a { display: block; padding: 6px 0; color: var(--text-2); font-size: var(--fs-sm); line-height: 1.35; transition: color .4s var(--ease-soft); }
+.legal__toc a:hover { color: var(--red); }
+@media (max-width: 999px) { .legal__toc { position: static; } }
+.legal__body { max-width: 52rem; }
+.legal__body > * + * { margin-top: var(--s-4); }
+.legal__date { color: var(--text-2); font-size: var(--fs-sm); font-weight: 600; }
+.legal__body h2 { margin-top: var(--s-8); padding-top: var(--s-5); border-top: 2px solid var(--ink-900); font-size: var(--fs-h3, 1.5rem); font-weight: 600; letter-spacing: -.01em; line-height: 1.25; scroll-margin-top: 96px; }
+.legal__body h2:first-child { margin-top: 0; }
+.legal__body h3 { margin-top: var(--s-6); font-size: 1.125rem; font-weight: 600; }
+.legal__body p, .legal__body li { color: var(--text-2); line-height: 1.8; }
+.legal__body ul, .legal__body ol { display: grid; gap: var(--s-2); padding-left: 1.25rem; }
+.legal__body ul { list-style: disc; }
+.legal__body ol.alpha { list-style: lower-alpha; }
+.legal__body li::marker { color: var(--red); font-weight: 600; }
+.legal__body a { color: var(--text); font-weight: 600; text-decoration: underline; text-decoration-color: var(--red); text-underline-offset: 3px; }
+.legal__body a:hover { color: var(--red); }
+
+/* Politika dosyaları */
+.docs { display: grid; gap: var(--s-5); grid-template-columns: 1fr; }
+@media (min-width: 700px) { .docs { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1100px) { .docs { grid-template-columns: repeat(3, 1fr); } }
+.doc { display: grid; gap: var(--s-3); align-content: start; padding: var(--s-6); border: 1px solid var(--line); border-radius: 14px; background: var(--white); transition: border-color .6s var(--ease-soft), box-shadow .6s var(--ease-soft); }
+.doc:hover { border-color: var(--red); box-shadow: 0 18px 40px -28px rgba(17, 17, 17, .35); }
+.doc__type { justify-self: start; padding: 4px 10px; border-radius: 6px; background: var(--surface-2); color: var(--text-2); font-size: var(--fs-xs); font-weight: 600; letter-spacing: .12em; }
+.doc h3 { font-size: 1.25rem; font-weight: 600; letter-spacing: -.01em; line-height: 1.25; }
+.doc__meta { color: var(--text-2); font-size: var(--fs-sm); }
+.doc__actions { display: flex; flex-wrap: wrap; align-items: center; gap: var(--s-4); margin-top: var(--s-2); }
+.doc__actions .btn svg { width: 16px; height: 16px; transform: rotate(90deg); }
+.price__link { display: inline-flex; align-items: center; gap: 6px; font-size: var(--fs-sm); font-weight: 600; color: var(--text-2); transition: color .4s var(--ease-soft); }
+.price__link svg { width: 14px; height: 14px; }
+.price__link:hover { color: var(--red); }
+
+/* Belgeler (sertifikalar) */
+.certs { display: grid; gap: var(--s-6) var(--s-5); grid-template-columns: 1fr; }
+@media (min-width: 600px) { .certs { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1100px) { .certs { grid-template-columns: repeat(4, 1fr); } }
+.cert { margin: 0; display: grid; gap: var(--s-4); align-content: start; }
+.cert__img { display: block; overflow: hidden; border: 1px solid var(--line); border-radius: 14px; background: var(--white); transition: border-color .6s var(--ease-soft), box-shadow .6s var(--ease-soft); }
+.cert__img:hover { border-color: var(--red); box-shadow: 0 18px 40px -28px rgba(17, 17, 17, .35); }
+.cert__img img { display: block; width: 100%; height: auto; aspect-ratio: 3 / 4; object-fit: contain; transition: transform 1.2s var(--ease-soft); }
+.cert__img:hover img { transform: scale(1.03); }
+.cert figcaption { display: grid; gap: 4px; }
+.cert figcaption b { font-weight: 600; }
+.cert figcaption span { color: var(--text-2); font-size: var(--fs-sm); }
+.cert figcaption .price__link { margin-top: 4px; justify-self: start; }

@@ -1,0 +1,21 @@
+/* İMZA DENEMESİ (taslak): ?v=defter | ?v=h | ?v=ikisi | (boş = şimdiki hâl). Ana siteyi etkilemez, yalnız _imza-deneme.html kullanır. */
+/* A) DEFTER: muhasebe defteri satır çizgileri + kırmızı kenar çizgisi, nokta ızgarası yerine */
+html[data-imza~="defter"] .hero--slider::before,
+html[data-imza~="defter"] .page-hero::before {
+  opacity: 1; mask-image: linear-gradient(to bottom, #000 0%, transparent 92%); -webkit-mask-image: linear-gradient(to bottom, #000 0%, transparent 92%);
+  background-image:
+    linear-gradient(to right, transparent calc(max(16px, (100% - 1200px) / 2 - 34px)), rgba(228, 35, 32, .55) calc(max(16px, (100% - 1200px) / 2 - 34px)), rgba(228, 35, 32, .55) calc(max(16px, (100% - 1200px) / 2 - 34px) + 1px), transparent calc(max(16px, (100% - 1200px) / 2 - 34px) + 1px), transparent calc(max(16px, (100% - 1200px) / 2 - 30px)), rgba(228, 35, 32, .35) calc(max(16px, (100% - 1200px) / 2 - 30px)), rgba(228, 35, 32, .35) calc(max(16px, (100% - 1200px) / 2 - 30px) + 1px), transparent calc(max(16px, (100% - 1200px) / 2 - 30px) + 1px)),
+    repeating-linear-gradient(to bottom, transparent 0, transparent 35px, rgba(255, 255, 255, .07) 35px, rgba(255, 255, 255, .07) 36px);
+  background-size: 100% 100%, 100% 36px;
+}
+/* istatistik rakamları: tablo hizalı rakamlar (defter hissi) */
+html[data-imza~="defter"] .facts dd, html[data-imza~="defter"] .hl__big { font-variant-numeric: tabular-nums; }
+/* B) H: logodaki "h" pencereli kırmızı blok, büyük ve silik; başlıklarda sağ altta */
+html[data-imza~="h"] .hero--slider::after,
+html[data-imza~="h"] .page-hero::after {
+  content: ""; position: absolute; z-index: -1; pointer-events: none; top: -12%; bottom: -28%; left: max(-4%, calc((100% - 1200px) / 2 - 150px)); aspect-ratio: 380 / 585;
+  background: url(/assets/img/mark-dolu.svg) center / contain no-repeat;
+}
+html[data-imza~="h"] .hero--slider::before, html[data-imza~="h"] .page-hero::before { opacity: .25; }
+@media (max-width: 899px) { html[data-imza~="h"] .hero--slider::after, html[data-imza~="h"] .page-hero::after { left: -30%; opacity: .7; } }
+/* h ve defter birlikte */

@@ -1,0 +1,48 @@
+/* Hareket sistemi: tek kural seti, yalnız compositor'da çalışan özellikler (transform, opacity).
+   Diğer dosyalardaki hareket kurallarını geçersiz kılar; bu yüzden en son yüklenir. */
+:root { --ease-out: cubic-bezier(.16, 1, .3, 1); --t-fast: .3s; --t-base: .55s; --t-slow: .9s; }
+
+/* ---------- Slayt geçişi: önce eski kaybolur, sonra yenisi sırayla girer (üst üste binme yok) ---------- */
+.slide { transform: none; transition: opacity .28s ease, visibility 0s linear .28s; }
+.slide.is-active { transition: opacity .6s var(--ease-soft) .3s, visibility 0s; }
+.slide.is-active .slide__copy > * { animation: motionUp .9s var(--ease-out) both; }
+.slide.is-active .slide__copy > :nth-child(1) { animation-delay: .30s; }
+.slide.is-active .slide__copy > :nth-child(2) { animation-delay: .38s; }
+.slide.is-active .slide__copy > :nth-child(3) { animation-delay: .48s; }
+.slide.is-active .slide__copy > :nth-child(4) { animation-delay: .58s; }
+.slide.is-active .slide__visual { animation: motionFade 1s var(--ease-soft) .36s both; }
+@keyframes motionUp { from { opacity: 0; transform: translate3d(0, 14px, 0); } to { opacity: 1; transform: none; } }
+@keyframes motionFade { from { opacity: 0; } to { opacity: 1; } }
+
+/* ---------- İlerleme çubuğu: genişlik yerine ölçek (yerleşim hesabı yok) ---------- */
+.slider__tab .fill { width: 100%; transform: scaleX(0); transform-origin: left center; will-change: transform; }
+.slider__tab[aria-selected="true"] .fill { animation: motionFill var(--slide-dur, 7s) linear forwards; }
+.slider__tab.is-done .fill { animation: none; transform: scaleX(1); opacity: .55; width: 100%; }
+@keyframes motionFill { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+
+/* ---------- Kart cam efekti: bulanıklık yalnızca üzerine gelince ---------- */
+.glass-hover::before { -webkit-backdrop-filter: none; backdrop-filter: none; }
+@media (hover: hover) {
+  .product:hover .glass-hover::before { -webkit-backdrop-filter: blur(7px) saturate(1.5); backdrop-filter: blur(7px) saturate(1.5); }
+}
+.product__thumb > img { will-change: auto; }
+
+/* ---------- Aşağı kaydırınca belirme: ekrana girince bir kez, belirgin ve yumuşak ---------- */
+.reveal { opacity: 0; transform: translate3d(0, 36px, 0); transition: opacity 1s var(--ease-out), transform 1.15s var(--ease-out); transition-delay: var(--d, 0ms); will-change: opacity, transform; }
+.reveal.is-in { opacity: 1; transform: none; will-change: auto; }
+
+/* ---------- Ekran dışında animasyon çalışmaz ---------- */
+.device--a, .device--b { animation-play-state: paused; will-change: transform; }
+.orbit.is-live .device--a, .orbit.is-live .device--b { animation-play-state: running; }
+
+@media (prefers-reduced-motion: reduce) {
+  .slide, .slide.is-active { transition: none; }
+  .slide.is-active .slide__copy > *, .slide.is-active .slide__visual { animation: none; }
+  .slider__tab[aria-selected="true"] .fill { animation: none; transform: scaleX(1); }
+  .reveal { opacity: 1; transform: none; transition: none; }
+}
+
+/* Footer: belirme efekti sayfayı uzatıp altta beyaz boşluk bırakmasın */
+.site-footer { overflow: clip; }
+html { background: var(--tone-bg-2); }
+body { background: var(--white); }

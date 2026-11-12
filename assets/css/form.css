@@ -1,0 +1,57 @@
+/* Form: eski formla aynı alanlar ve düzen (etiket üstte), modern görünüm */
+.qform { background: var(--white); color: var(--text); border-radius: 22px; padding: var(--s-6); display: grid; gap: var(--s-4); border: 1px solid var(--line); box-shadow: 0 30px 70px rgba(17, 17, 17, .10); }
+.qform__grid { display: grid; gap: var(--s-4); }
+@media (min-width: 640px) { .qform__grid { grid-template-columns: 1fr 1fr; } }
+
+.qfield { display: grid; gap: 8px; align-content: start; }
+.qfield label { font-size: var(--fs-sm); font-weight: 500; color: var(--text); }
+.qfield input, .qfield select, .qfield textarea { width: 100%; min-height: 54px; padding: 0 16px; font: inherit; font-size: var(--fs-md); color: var(--text); background: var(--surface); border: 1.5px solid transparent; border-radius: 12px; outline: none; transition: background-color .35s var(--ease-soft), border-color .35s var(--ease-soft), box-shadow .35s var(--ease-soft); }
+.qfield textarea { min-height: 130px; padding: 14px 16px; resize: vertical; }
+.qfield input:focus, .qfield select:focus, .qfield textarea:focus { background: var(--white); border-color: var(--red); box-shadow: 0 0 0 4px rgba(228, 35, 32, .12); }
+.qfield select { appearance: none; -webkit-appearance: none; padding-right: 44px; cursor: pointer; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%236A6A70' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 14px center; }
+.qfield select:focus { background-color: var(--white); }
+.qfield__err { display: none; font-size: var(--fs-xs); font-weight: 500; color: var(--red-strong); }
+.is-invalid > input, .is-invalid > select, .is-invalid > textarea { border-color: var(--red); background: #FFF6F5; }
+.is-invalid > .qfield__err { display: block; }
+
+.qform__foot { display: flex; justify-content: flex-end; padding-top: var(--s-2); }
+.qform__send { min-height: 52px; padding: 0 var(--s-6); }
+.qform__status { min-height: 1.4em; font-size: var(--fs-sm); color: var(--text-2); text-align: right; }
+.qform__status.is-error { color: var(--red-strong); }
+@media (max-width: 560px) { .qform { padding: var(--s-5) var(--s-4); } .qform__send { width: 100%; } }
+
+/* ---------- Özel açılır liste (sistem menüsünün yerine) ---------- */
+.qsel { position: relative; }
+.qsel > select { position: absolute; inset: 0 auto auto 0; width: 1px; height: 1px; opacity: 0; pointer-events: none; }
+.qsel__btn { width: 100%; min-height: 54px; padding: 0 44px 0 16px; display: flex; align-items: center; text-align: left; font: inherit; font-size: var(--fs-md); color: var(--text); background: var(--surface); border: 1.5px solid transparent; border-radius: 12px; cursor: pointer; transition: background-color .35s var(--ease-soft), border-color .35s var(--ease-soft), box-shadow .35s var(--ease-soft); }
+.qsel__btn:hover { background: var(--surface-2); }
+.qsel__btn:focus-visible, .qsel.is-open .qsel__btn { outline: none; background: var(--white); border-color: var(--red); box-shadow: 0 0 0 4px rgba(228, 35, 32, .12); }
+.qsel__val.is-placeholder { color: var(--text-2); }
+.qsel__chev { position: absolute; right: 14px; top: 27px; width: 20px; height: 20px; margin-top: -10px; color: var(--text-3); pointer-events: none; transition: transform .4s var(--ease-soft); }
+.qsel.is-open .qsel__chev { transform: rotate(180deg); }
+.is-invalid .qsel__btn { border-color: var(--red); background: #FFF6F5; }
+.qsel__list { position: absolute; z-index: 30; left: 0; right: 0; top: calc(100% + 6px); margin: 0; padding: 6px; max-height: 420px; overflow-y: auto; list-style: none; background: var(--white); border: 1px solid var(--line); border-radius: 14px; box-shadow: 0 24px 56px rgba(17, 17, 17, .18); scrollbar-width: thin; scrollbar-color: var(--gray) transparent; opacity: 0; transform: translateY(-6px); pointer-events: none; visibility: hidden; transition: opacity .25s var(--ease-soft), transform .3s var(--ease-soft), visibility 0s linear .3s; }
+.qsel.is-open .qsel__list { opacity: 1; transform: none; pointer-events: auto; visibility: visible; transition-delay: 0s; }
+.qsel--up .qsel__list { top: auto; bottom: calc(100% + 6px); transform: translateY(6px); }
+.qsel--up.is-open .qsel__list { transform: none; }
+.qsel__opt { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 9px 12px; border-radius: 9px; font-size: var(--fs-md); color: var(--text); cursor: pointer; transition: background-color .2s var(--ease-soft); }
+.qsel__opt.is-active { background: var(--surface); }
+.qsel__opt[aria-selected="true"] { font-weight: 600; }
+.qsel__opt[aria-selected="true"]::after { content: ""; width: 16px; height: 16px; flex: none; background: var(--red); -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12l5 5 9-10'/%3E%3C/svg%3E") center / contain no-repeat; mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12l5 5 9-10'/%3E%3C/svg%3E") center / contain no-repeat; }
+@media (prefers-reduced-motion: reduce) { .qsel__list, .qsel__chev { transition: none; } }
+
+/* "Yorum Yap" penceresi */
+.cdialog { width: min(520px, calc(100% - 32px)); max-height: calc(100vh - 32px); padding: 0; border: 0; border-radius: 22px; background: var(--white); color: var(--text); box-shadow: 0 40px 80px -30px rgba(0, 0, 0, .6); overflow: auto; }
+.cdialog::backdrop { background: rgba(17, 17, 17, .6); }
+.cdialog__form { border: 0; border-radius: 0; box-shadow: none; }
+.cdialog__head { display: flex; align-items: center; justify-content: space-between; gap: var(--s-4); }
+.cdialog__head h2 { font-size: var(--fs-h3, 1.5rem); font-weight: 600; letter-spacing: -.01em; }
+.cdialog__close { width: 40px; height: 40px; display: grid; place-items: center; border: 0; border-radius: 50%; background: var(--surface); color: var(--text); cursor: pointer; transition: background .4s var(--ease-soft); }
+.cdialog__close:hover { background: var(--line); }
+.cdialog__close svg { width: 18px; height: 18px; }
+.cdialog__form { margin: 0; }
+.cdialog__form .qform__status:empty { display: none; }
+
+/* Güvenlik doğrulaması (Cloudflare Turnstile) yer tutucusu */
+.qturn { display: flex; align-items: center; gap: var(--s-3); padding: 14px 16px; border: 1px dashed var(--line); border-radius: 12px; background: var(--surface); color: var(--text-2); font-size: var(--fs-sm); }
+.qturn svg { width: 22px; height: 22px; flex: none; padding: 3px; border-radius: 50%; background: var(--red); color: var(--white); }

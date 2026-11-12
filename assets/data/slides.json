@@ -1,0 +1,259 @@
+{
+  "_doc": {
+    "amac": "Ana sayfa hero kaydırıcısının içeriği. Admin paneli bu dosyanın yerine bir API (ör. GET /api/slides) kullanacak; alanlar aynı kalır.",
+    "settings.interval": "Otomatik geçiş süresi (ms).",
+    "slides[].enabled": "false ise slayt yayınlanmaz (taslak).",
+    "slides[].type": "brand | product | news | notice | campaign. Rozet için badge alanı kullanılır.",
+    "slides[].tab": "Alttaki sekmede görünen kısa ad.",
+    "slides[].badge": "İsteğe bağlı rozet, ör. 'Yenilik', 'Duyuru'.",
+    "slides[].date": "İsteğe bağlı tarih (YYYY-AA-GG), haber/duyuru slaytlarında gösterilir.",
+    "slides[].title": "Başlık. {{...}} içindeki kısım kırmızı vurgulanır.",
+    "slides[].actions": "En fazla 2 düğme: label, href, variant (primary | ghost).",
+    "slides[].visual": "{kind:'image', src, alt, frame:'browser'} gerçek ekran görüntüsü (16:10 önerilir)."
+  },
+  "settings": {
+    "interval": 7000
+  },
+  "slides": [
+    {
+      "id": "marka",
+      "enabled": true,
+      "type": "brand",
+      "tab": "Hattat Müşavir",
+      "eyebrow": "Hattat Yazılım · 1993'ten beri",
+      "title": "Siz hayal edin, {{biz yazalım.}}",
+      "lead": "Mali müşavir ofisleri için beyanname, bildirge, tebligat ve e-fatura süreçlerini tek ekrandan takip eden yazılımlar, Türkiye'nin her yerinde.",
+      "actions": [
+        {
+          "label": "Ürünleri İncele",
+          "href": "#urunler",
+          "variant": "primary"
+        },
+        {
+          "label": "İletişime Geç",
+          "href": "#iletisim",
+          "variant": "ghost"
+        }
+      ],
+      "visual": {
+        "kind": "image",
+        "src": "assets/img/products/hero/ana-musavir.jpg",
+        "alt": "Hattat Müşavir ana sayfası",
+        "frame": "browser"
+      }
+    },
+    {
+      "id": "entegre",
+      "enabled": true,
+      "type": "product",
+      "tab": "Hattat Entegre",
+      "eyebrow": "Hattat Entegre",
+      "title": "Faturadan muhasebe fişine, {{elle veri girişi olmadan.}}",
+      "lead": "E-fatura ve e-arşiv faturaları 40'tan fazla entegratör firmadan otomatik gelir, muhasebe programınıza saniyeler içinde aktarılır.",
+      "actions": [
+        {
+          "label": "Hattat Entegre'yi incele",
+          "href": "/urun/hattat-entegre/",
+          "variant": "primary"
+        },
+        {
+          "label": "Giriş",
+          "href": "https://hattatentegre.com",
+          "variant": "ghost"
+        }
+      ],
+      "visual": {
+        "kind": "image",
+        "src": "assets/img/products/hero/ana-entegre.jpg",
+        "alt": "Hattat Entegre ana sayfası",
+        "frame": "browser"
+      }
+    },
+    {
+      "id": "mevzuat",
+      "enabled": true,
+      "type": "product",
+      "tab": "Hattat Mevzuat",
+      "eyebrow": "Hattat Mevzuat",
+      "title": "Mevzuat değişir, {{siz haberdar olursunuz.}}",
+      "lead": "Sürekli değişen mevzuatı mobilden ve bilgisayarınızdan takip edin; kanun, özelge ve Danıştay kararları elinizin altında.",
+      "actions": [
+        {
+          "label": "Hattat Mevzuat'ı incele",
+          "href": "/urun/hattat-mevzuat/",
+          "variant": "primary"
+        },
+        {
+          "label": "Giriş",
+          "href": "https://www.hattatmevzuat.com/",
+          "variant": "ghost"
+        }
+      ],
+      "visual": {
+        "kind": "image",
+        "src": "assets/img/products/hero/giris-mevzuat.jpg",
+        "alt": "Hattat Mevzuat giriş ekranı",
+        "frame": "browser"
+      }
+    },
+    {
+      "id": "ymm",
+      "enabled": true,
+      "type": "product",
+      "tab": "Hattat YMM",
+      "eyebrow": "Hattat YMM Otomasyon",
+      "title": "Karşıt inceleme ve YMM teyit, {{otomatik hazır.}}",
+      "lead": "Tebliğe göre %80 karşıt incelemeyi otomatik tespit eder, 40 farklı entegratörden faturaları kalem kalem alır.",
+      "actions": [
+        {
+          "label": "Hattat YMM'yi incele",
+          "href": "/urun/hattat-ymm/",
+          "variant": "primary"
+        },
+        {
+          "label": "Giriş",
+          "href": "https://portal.ymmotomasyon.com/",
+          "variant": "ghost"
+        }
+      ],
+      "visual": {
+        "kind": "image",
+        "src": "assets/img/products/hero/ana-ymm.jpg",
+        "alt": "Hattat YMM Otomasyon mükellef firmalar ekranı",
+        "frame": "browser"
+      }
+    },
+    {
+      "id": "e-arsiv",
+      "enabled": true,
+      "type": "product",
+      "tab": "E-Arşiv Portal",
+      "eyebrow": "Hattat E-Arşiv Portal",
+      "title": "E-Arşiv faturanızı {{cep telefonundan}} kesin.",
+      "lead": "Birkaç tıkla fatura düzenleyin; düzenlediğiniz faturalar 10 yıl boyunca güvende.",
+      "actions": [
+        {
+          "label": "E-Arşiv Portal'ı incele",
+          "href": "/urun/hattat-e-arsiv-portal/",
+          "variant": "primary"
+        },
+        {
+          "label": "Giriş",
+          "href": "https://hattatearsivportal.com/",
+          "variant": "ghost"
+        }
+      ],
+      "visual": {
+        "kind": "image",
+        "src": "assets/img/products/hero/giris-earsiv.jpg",
+        "alt": "Hattat E-Arşiv Portal giriş ekranı",
+        "frame": "browser"
+      }
+    },
+    {
+      "id": "e-defter",
+      "enabled": true,
+      "type": "product",
+      "tab": "Hattat e-Defter",
+      "eyebrow": "Hattat e-Defter",
+      "title": "Defterleriniz verildi mi? {{Sistem kontrol eder.}}",
+      "lead": "Tüm defter süreçlerinizi tek platformdan yönetin; defterler güvenle saklanır, istediğiniz zaman toplu indirebilirsiniz.",
+      "actions": [
+        {
+          "label": "Hattat e-Defter'i incele",
+          "href": "/urun/hattat-e-defter/",
+          "variant": "primary"
+        },
+        {
+          "label": "Giriş",
+          "href": "https://hattatedefter.com",
+          "variant": "ghost"
+        }
+      ],
+      "visual": {
+        "kind": "image",
+        "src": "assets/img/products/hero/ana-edefter.jpg",
+        "alt": "Hattat e-Defter ana sayfası",
+        "frame": "browser"
+      }
+    },
+    {
+      "id": "web",
+      "enabled": true,
+      "type": "product",
+      "tab": "Web Sitesi",
+      "eyebrow": "Web Sitesi",
+      "title": "Kendi adınıza {{kurumsal web siteniz.}}",
+      "lead": "Her gün haber ve mevzuatın güncellendiği, özel duyuru, fotoğraf galerisi ve iletişim formu olan kurumsal muhasebe web siteniz.",
+      "actions": [
+        {
+          "label": "Web Sitesi'ni incele",
+          "href": "/urun/web-sitesi/",
+          "variant": "primary"
+        },
+        {
+          "label": "İletişime Geç",
+          "href": "#iletisim",
+          "variant": "ghost"
+        }
+      ],
+      "visual": {
+        "kind": "image",
+        "src": "assets/img/products/hero/ana-web.jpg",
+        "alt": "Web Sitesi ürünü: örnek mali müşavir kurumsal sitesi",
+        "frame": "browser"
+      }
+    },
+    {
+      "id": "online-teklif",
+      "enabled": true,
+      "type": "product",
+      "tab": "Online Teklif",
+      "eyebrow": "Online Teklif",
+      "title": "Profesyonel teklifler {{dakikalar içinde.}}",
+      "lead": "Ürünlerinizi yönetin, müşterilerinizi takip edin, PDF tekliflerinizi oluşturun.",
+      "actions": [
+        {
+          "label": "Online Teklif'i incele",
+          "href": "/urun/online-teklif/",
+          "variant": "primary"
+        },
+        {
+          "label": "Giriş",
+          "href": "https://onlineteklifim.com",
+          "variant": "ghost"
+        }
+      ],
+      "visual": {
+        "kind": "image",
+        "src": "assets/img/products/hero/giris-teklif.jpg",
+        "alt": "Online Teklif giriş ekranı",
+        "frame": "browser"
+      }
+    },
+    {
+      "id": "ornek-yenilik",
+      "enabled": false,
+      "type": "news",
+      "badge": "Yenilik",
+      "date": "2026-11-11",
+      "tab": "Yenilik",
+      "eyebrow": "Hattat Müşavir",
+      "title": "Örnek yenilik başlığı: {{yeni özellik yayında.}}",
+      "lead": "Bu slayt, admin panelinden eklenebilecek bir haber/duyuru örneğidir. enabled: true yapılırsa yayınlanır.",
+      "actions": [
+        {
+          "label": "Ayrıntılar",
+          "href": "#",
+          "variant": "primary"
+        }
+      ],
+      "visual": {
+        "kind": "image",
+        "src": "assets/img/products/hero/ana-musavir.jpg",
+        "alt": "Hattat Müşavir ana sayfası",
+        "frame": "browser"
+      }
+    }
+  ]
+}

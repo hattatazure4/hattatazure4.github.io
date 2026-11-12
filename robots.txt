@@ -1,0 +1,3 @@
+# TEST YAYINI: arama motorları dışarıda. Canlıya alırken robots.production.txt içeriğini robots.txt yapın ve _headers dosyasındaki noindex satırını kaldırın.
+User-agent: *
+Disallow: /

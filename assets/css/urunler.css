@@ -1,0 +1,27 @@
+/* Ürünler sayfası: her ürün tam genişlikte bir bant; zemin sırayla beyaz / koyu */
+.pband { padding-block: var(--s-8); }
+@media (min-width: 992px) { .pband { padding-block: var(--s-9); } }
+.pband--dark { background: var(--tone-bg); color: var(--tone-text); }
+.pband__grid { display: grid; gap: var(--s-7); align-items: center; }
+@media (min-width: 992px) { .pband__grid { grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr); gap: var(--s-9); } .pband--flip .pband__grid { grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr); } .pband--flip .pband__copy { order: 2; } }
+.pband__copy { display: grid; gap: var(--s-4); justify-items: start; }
+.pband__no { font-size: var(--fs-xs); font-weight: 600; letter-spacing: .14em; color: var(--red); }
+.pband h2 { font-size: var(--fs-h2); line-height: 1.1; letter-spacing: -.01em; font-weight: 600; }
+.pband p { color: var(--text-2); font-size: var(--fs-lg); line-height: 1.6; max-width: 32rem; }
+.pband--dark p { color: var(--tone-text-2); }
+.pband .tags { border-top: 0; padding-top: 0; }
+.pband--dark .tags li { background: var(--white); color: var(--tone-text-2); }
+.pband__actions { display: flex; flex-wrap: wrap; gap: var(--s-3); margin-top: var(--s-2); }
+.pband--dark .btn--outline { border-color: var(--text); color: var(--text); }
+.pband--dark .btn--outline:hover { background: var(--text); color: var(--white); }
+
+/* Bilgisayar çerçevesi */
+.laptop { position: relative; width: 100%; max-width: 680px; margin-inline: auto; }
+.laptop__screen { position: relative; overflow: hidden; border: 10px solid #0B0B0C; border-bottom-width: 12px; border-radius: 16px 16px 0 0; background: #0B0B0C; box-shadow: 0 30px 60px rgba(17, 17, 17, .30); line-height: 0; }
+.pband--dark .laptop__screen { box-shadow: 0 30px 60px rgba(17, 17, 17, .30); }
+.laptop__screen img { display: block; width: 100%; height: auto; aspect-ratio: 16 / 10; object-fit: cover; object-position: top; transition: transform 1.6s var(--ease-soft); }
+.laptop__base { position: relative; height: 15px; width: 112%; margin-left: -6%; border-radius: 0 0 18px 18px; background: linear-gradient(#D5D5D8, #A5A5A9); box-shadow: 0 14px 24px rgba(17, 17, 17, .22); }
+.laptop__base::before { content: ""; position: absolute; left: 50%; top: 0; width: 18%; height: 5px; transform: translateX(-50%); border-radius: 0 0 8px 8px; background: #8E8E92; }
+@media (hover: hover) { .laptop:hover .laptop__screen img { transform: scale(1.04); } .laptop:hover .glass-hover { opacity: 1; } .laptop:hover .glass-hover::after { animation: shine 2.2s var(--ease-soft) .2s 1 both; } }
+
+.pband { overflow-x: clip; }

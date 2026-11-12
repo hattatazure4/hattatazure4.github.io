@@ -1,0 +1,137 @@
+/* Fiyatlarımız. Renk sırası: koyu (başlık) → beyaz (yıllık) → gri (online) → koyu (bağlantılar) → beyaz (çağrı) → koyu footer */
+.pgrid { display: grid; gap: var(--s-5); grid-template-columns: 1fr; align-items: stretch; }
+@media (min-width: 680px) { .pgrid { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1100px) { .pgrid--4 { grid-template-columns: repeat(4, 1fr); } .pgrid--3 { grid-template-columns: repeat(3, 1fr); } }
+
+.price { display: grid; grid-template-rows: auto auto auto 1fr auto; gap: var(--s-4); padding: var(--s-6); border: 1px solid var(--line); border-radius: 14px; background: var(--white); transition: border-color .6s var(--ease-soft), box-shadow .6s var(--ease-soft); }
+.price:hover { border-color: var(--red); box-shadow: 0 18px 40px -28px rgba(17, 17, 17, .35); }
+.price__head { display: grid; gap: var(--s-2); justify-items: start; align-content: start; }
+@media (min-width: 1100px) { .pgrid--3 .price__head { min-height: 5.4rem; } }
+.price__type { font-size: var(--fs-xs); font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--red); }
+.price__badge { display: inline-block; padding: 4px 10px; border-radius: 12px; background: var(--surface); color: var(--text-2); font-size: var(--fs-xs); font-weight: 600; line-height: 1.35; }
+.price h3 { font-size: 1.375rem; font-weight: 600; letter-spacing: -.01em; line-height: 1.2; }
+.price__amount { display: flex; align-items: baseline; flex-wrap: wrap; gap: 6px; padding-block: var(--s-3); border-block: 1px solid var(--line); }
+.price__amount b { font-size: clamp(1.875rem, 1.5rem + 1vw, 2.375rem); font-weight: 600; letter-spacing: -.01em; line-height: 1.1; white-space: nowrap; }
+.price__amount span { color: var(--text-2); font-size: var(--fs-sm); font-weight: 600; }
+.price__amount--text b { font-size: 1.5rem; letter-spacing: -.01em; }
+.price__btn { width: 100%; justify-content: center; }
+.price__btn svg { width: 16px; height: 16px; }
+
+/* Özellikler: ilk ikisi açık, kalanı açılır kapanır */
+.price__feats { display: grid; gap: var(--s-3); align-content: start; }
+.price__list { display: grid; gap: 10px; align-content: start; }
+.price__list li { position: relative; padding-left: 24px; color: var(--text-2); font-size: var(--fs-sm); line-height: 1.5; }
+.price__list li::before { content: ""; position: absolute; left: 2px; top: .3em; width: 10px; height: 6px; border-left: 2px solid var(--red); border-bottom: 2px solid var(--red); transform: rotate(-45deg); }
+.price__list strong { color: var(--text); font-weight: 600; }
+.price__more { display: grid; gap: var(--s-3); }
+.price__more summary { display: inline-flex; align-items: center; gap: 8px; width: fit-content; cursor: pointer; list-style: none; color: var(--red); font-size: var(--fs-sm); font-weight: 600; }
+.price__more summary::-webkit-details-marker { display: none; }
+.price__more summary::after { content: ""; width: 8px; height: 8px; border-right: 2px solid currentColor; border-bottom: 2px solid currentColor; transform: rotate(45deg) translate(-2px, -2px); transition: transform .5s var(--ease-soft); }
+.price__more[open] summary::after { transform: rotate(-135deg) translate(-2px, -2px); }
+.price__more summary:hover { text-decoration: underline; text-underline-offset: 3px; }
+.price__more summary:focus-visible { outline: 2px solid var(--red); outline-offset: 3px; border-radius: 4px; }
+.price__more-close { display: none; }
+.price__more[open] .price__more-open { display: none; }
+.price__more[open] .price__more-close { display: inline; }
+
+.fy-links { display: grid; gap: var(--s-6); align-items: center; }
+@media (min-width: 900px) { .fy-links { grid-template-columns: minmax(0, 1fr) auto; gap: var(--s-8); } }
+.fy-links__row { display: flex; flex-wrap: wrap; gap: var(--s-3); }
+.fy-links__row svg { width: 16px; height: 16px; }
+
+
+/* ===== Fiyatlarımız: tek sade tablo ===== */
+.visually-hidden { position: absolute; width: 1px; height: 1px; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.ptable-wrap { overflow-x: auto; }
+.ptable { width: 100%; border-collapse: collapse; text-align: left; }
+.ptable thead th { padding: 0 var(--s-4) var(--s-3); border-bottom: 2px solid var(--text); font-size: var(--fs-xs); font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--text-3); }
+.ptable tbody th, .ptable tbody td { padding: var(--s-5) var(--s-4); border-bottom: 1px solid var(--line); vertical-align: middle; }
+.ptable tbody tr.ptable__group th { padding: var(--s-6) var(--s-4) var(--s-3); border-bottom: 0; background: none; font-size: 1.125rem; font-weight: 700; letter-spacing: -.01em; }
+.ptable tbody tr.ptable__group th span { display: block; margin-top: 2px; font-size: var(--fs-sm); font-weight: 400; color: var(--text-2); letter-spacing: 0; }
+.ptable__name { display: block; font-size: 1.125rem; font-weight: 600; letter-spacing: -.01em; color: var(--text); }
+.ptable__name:hover { color: var(--red-strong); text-decoration: underline; text-underline-offset: 3px; }
+.ptable__for { display: block; margin-top: 2px; font-size: var(--fs-sm); font-weight: 400; color: var(--text-3); }
+.ptable td { color: var(--text-2); font-size: .9375rem; line-height: 1.5; }
+.ptable__price b { font-size: 1.75rem; font-weight: 700; letter-spacing: -.01em; color: var(--text); white-space: nowrap; }
+.ptable__price b.ptable__text { font-size: 1.375rem; }
+.ptable__price span { color: var(--text-2); font-weight: 600; }
+.ptable__price small { display: block; margin-top: 4px; font-size: var(--fs-sm); color: var(--text-2); line-height: 1.4; }
+.ptable__act { text-align: right; white-space: nowrap; }
+.ptable__act .btn { min-height: 44px; }
+.ptable__act .btn svg { width: 16px; height: 16px; }
+.fy-note { margin: var(--s-6) 0 0; color: var(--text-2); font-size: var(--fs-sm); }
+.fy-note a { color: var(--red-strong); font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
+@media (min-width: 900px) {
+  .ptable tbody th[scope="row"] { width: 22%; } .ptable tbody td:nth-child(2) { width: 34%; } .ptable__price { width: 24%; }
+}
+@media (max-width: 899px) {
+  .ptable thead { display: none; }
+  .ptable, .ptable tbody, .ptable tr, .ptable th, .ptable td { display: block; }
+  .ptable tbody tr:not(.ptable__group) { padding: var(--s-5) 0; border-bottom: 1px solid var(--line); }
+  .ptable tbody th[scope="row"], .ptable tbody td { padding: 0 0 var(--s-3); border-bottom: 0; }
+  .ptable__act { text-align: left; padding-bottom: 0 !important; }
+}
+
+/* Sayfa açılınca fiyatlar ilk ekranda görünsün: başlık alanı sıkı */
+.page-hero:has(#fy-baslik) { padding-top: var(--s-7); padding-bottom: var(--s-5); }
+.page-hero:has(#fy-baslik) .lead { margin-top: 0; }
+.page-hero:has(#fy-baslik) + .section { padding-top: var(--s-6); }
+
+
+/* ===== Hattat Müşavir hesaplama ===== */
+.calc { display: grid; gap: var(--s-7); align-items: center; }
+@media (min-width: 992px) { .calc { grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr); gap: var(--s-8); } }
+.calc__intro { display: grid; gap: var(--s-3); align-content: center; }
+.calc__intro h2 { font-size: var(--fs-h2); line-height: 1.15; letter-spacing: -.01em; font-weight: 600; max-width: 18ch; }
+.calc__intro > p { margin: 0; color: var(--text-2); font-size: var(--fs-lg); }
+.calc__rule { list-style: none; margin: var(--s-4) 0 0; padding: 0; border-top: 1px solid var(--line); }
+.calc__rule li { display: grid; grid-template-columns: 11.5rem 1fr; gap: var(--s-4); padding: var(--s-4) 0; border-bottom: 1px solid var(--line); }
+.calc__rule b { font-weight: 600; }
+.calc__rule span { color: var(--text-2); }
+@media (max-width: 560px) { .calc__rule li { grid-template-columns: 1fr; gap: 2px; } }
+
+.calc__card { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--s-4); padding: var(--s-6); background: var(--white); border: 1px solid var(--line); border-radius: 20px; box-shadow: 0 30px 60px -44px rgba(17, 17, 17, .35); }
+.calc__label { font-size: var(--fs-sm); font-weight: 600; color: var(--text-2); }
+.calc__in { display: grid; grid-template-columns: 8.5rem 1fr; gap: var(--s-4); align-items: center; }
+.calc__in input[type="number"] { width: 100%; min-height: 58px; padding: 0 16px; border: 1px solid #C9C9CD; border-radius: 12px; background: var(--white); font: inherit; font-size: 1.625rem; font-weight: 700; color: var(--text); }
+.calc__in input[type="number"]:focus-visible { outline: 2px solid var(--red); outline-offset: 0; border-color: var(--red); }
+.calc__in input[type="range"] { width: 100%; accent-color: var(--red); height: 28px; cursor: pointer; }
+.calc__chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.calc__chips button { min-width: 52px; min-height: 36px; padding: 0 14px; border: 1px solid var(--line); border-radius: 99px; background: var(--white); font: inherit; font-size: var(--fs-sm); font-weight: 600; color: var(--text-2); cursor: pointer; transition: border-color .3s, color .3s, background-color .3s; }
+.calc__chips button:hover { border-color: var(--text); color: var(--text); }
+.calc__chips button[aria-pressed="true"] { border-color: var(--red); color: var(--red-strong); box-shadow: inset 0 0 0 1px var(--red); }
+.calc__chips button:focus-visible { outline: 2px solid var(--red); outline-offset: 2px; }
+
+.calc__out { display: grid; gap: 2px; padding: var(--s-5) 0 var(--s-3); border-top: 1px solid var(--line); }
+.calc__out span { font-size: var(--fs-sm); color: var(--text-2); }
+.calc__out b { font-size: clamp(2.5rem, 1.8rem + 2.4vw, 3.5rem); font-weight: 700; letter-spacing: -.01em; line-height: 1.05; font-variant-numeric: tabular-nums; }
+.calc__lines { margin: 0; display: grid; gap: 8px; padding: var(--s-4); border-radius: 12px; background: var(--tone-bg); }
+.calc__lines div { display: flex; justify-content: space-between; gap: var(--s-4); font-size: var(--fs-sm); }
+.calc__lines div[hidden] { display: none; }
+.calc__lines dt { color: var(--text-2); }
+.calc__lines dd { margin: 0; font-weight: 600; font-variant-numeric: tabular-nums; }
+.calc__per { margin: 0; font-size: var(--fs-sm); color: var(--text-2); }
+.calc__per b { color: var(--text); font-weight: 600; }
+.calc__cta { width: 100%; justify-content: center; min-height: 52px; }
+.calc__cta svg { width: 16px; height: 16px; }
+.calc { grid-template-columns: minmax(0, 1fr); }
+@media (min-width: 992px) { .calc { grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr); } }
+.calc > * { min-width: 0; }
+@media (max-width: 899px) {
+  .ptable tbody tr.ptable__group th { padding-left: 0; padding-right: 0; }
+  .ptable__act .btn { width: 100%; justify-content: center; min-height: 48px; }
+  .ptable__act { white-space: normal; }
+}
+@media (max-width: 560px) {
+  .calc__card { padding: var(--s-5); }
+  .calc__in { grid-template-columns: 1fr; gap: var(--s-3); }
+  .calc__chips button { flex: 1 1 0; min-width: 0; padding: 0 8px; }
+}
+.calc__in input { min-width: 0; box-sizing: border-box; }
+
+/* Hesaplama kartı: sayı değişince yükseklik sabit kalır */
+.calc__lines div.is-off { opacity: .4; }
+.calc__lines div { min-height: 1.4em; }
+.calc__lines dd, .calc__per b, .calc__out b { font-variant-numeric: tabular-nums; }
+.calc__out b { min-height: 1.1em; white-space: nowrap; }
+.calc__per { min-height: 1.4em; }

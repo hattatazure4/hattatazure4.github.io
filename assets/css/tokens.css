@@ -1,0 +1,70 @@
+/* Hattat Yazılım — tasarım belirteçleri (design tokens)
+   Marka renkleri logo dosyasından alındı: kırmızı #E42320, gri #B5B4B5, beyaz #FFFFFF.
+   Siyah yalnızca metinde ve küçük vurgularda (düğme, etiket) kalır; geniş yüzeyler açık tondadır (--tone-*).
+   React/Next.js'e taşırken bu dosya olduğu gibi global CSS ya da CSS değişkeni olarak kalır. */
+:root {
+  /* Marka */
+  --red: #E42320;
+  --red-strong: #C41C19;      /* hover, küçük kırmızı metin (beyaz üstünde ≈ 6:1) */
+  --gray: #B5B4B5;
+  --white: #FFFFFF;
+  --black: #111111;
+
+  /* Koyu yüzeyler */
+  --ink-900: #111111;
+  --ink-800: #1C1C1E;
+  --ink-700: #2A2A2D;
+  --ink-line: rgba(17, 17, 17, .10);   /* ince çizgiler (eskiden koyu yüzeydeki açık çizgi) */
+
+  /* Vurgu yüzeyleri: üst menü, slider, sayfa başı, bantlar, alt bilgi. Eskiden siyahtı; açık tonlar tek yerden ayarlanır. */
+  --tone-bg: #F5F5F6;          /* slider ve sayfa başı zemini */
+  --tone-bg-2: #FFFFFF;        /* üst menü, alt bilgi, kutular */
+  --tone-dark: #1C1C1E;        /* alt bilgi (footer): sayfadaki tek koyu yüzey */
+  --tone-text: #1C1C1E;
+  --tone-text-2: #4A4A4F;
+  --tone-text-3: #6A6A70;
+  --tone-line: rgba(17, 17, 17, .12);
+  --tone-glow: rgba(228, 35, 32, .10);   /* kırmızı ışıma */
+
+  /* Açık yüzeyler ve metin */
+  --surface: #F5F5F6;
+  --surface-2: #ECECED;
+  --line: #E2E2E4;
+  --text: #1C1C1E;
+  --text-2: #4A4A4F;          /* ikincil metin, beyaz üstünde ≈ 8:1 */
+  --text-3: #6A6A70;          /* soluk metin, beyaz üstünde ≈ 5:1 */
+
+  /* Yazı tipi */
+  --font: "Barlow", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --fs-xs: .8125rem;
+  --fs-sm: .9375rem;
+  --fs-md: 1rem;
+  --fs-lg: 1.125rem;
+  --fs-h3: 1.25rem;
+  --fs-h2: clamp(1.75rem, 1.2rem + 1.8vw, 2.5rem);
+  --fs-h1: clamp(2.125rem, 1.3rem + 3vw, 3.5rem);
+
+  /* Boşluk (8 px ızgara) */
+  --s-1: .25rem; --s-2: .5rem; --s-3: .75rem; --s-4: 1rem; --s-5: 1.5rem;
+  --s-6: 2rem; --s-7: 3rem; --s-8: 4rem; --s-9: 6rem;
+
+  /* Şekil */
+  --r-sm: 4px;
+  --r-md: 6px;
+  --ease-soft: cubic-bezier(.22, .61, .36, 1);   /* yumuşak çıkış */
+  --shadow-1: 0 1px 2px rgba(17, 17, 17, .06), 0 4px 12px rgba(17, 17, 17, .05);
+
+  /* Yerleşim */
+  --container: 1200px;
+  --gutter: 1rem;
+  --header-h: 72px;
+}
+@media (min-width: 768px) { :root { --gutter: 1.5rem; } }
+@media (min-width: 1200px) { :root { --gutter: 2rem; } }
+
+/* Barlow'un x-yüksekliği küçük: okunurluk için taban yazı %6 büyük */
+html { font-size: 106.25%; }
+
+/* Geniş ekranlar: içerik genişliği ve yazı ölçeği kademeli büyür */
+@media (min-width: 1700px) { :root { --container: 1360px; } }
+@media (min-width: 2200px) { :root { --container: 1560px; } html { font-size: 112.5%; } }

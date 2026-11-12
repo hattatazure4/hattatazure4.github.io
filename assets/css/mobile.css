@@ -1,0 +1,96 @@
+/* Mobil Teknolojiler: solda büyük rakamlı faydalar, sağda koyu daire üstünde gerçek uygulama ekranları ve ikonları */
+.mobile { display: grid; gap: var(--s-8); align-items: center; }
+@media (min-width: 992px) { .mobile { grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr); gap: var(--s-8); } }
+
+.values { display: grid; gap: var(--s-6) var(--s-6); margin-top: var(--s-6); grid-template-columns: 1fr; counter-reset: v; }
+@media (min-width: 640px) { .values { grid-template-columns: 1fr 1fr; gap: var(--s-6) var(--s-6); } }
+.value { position: relative; display: flex; flex-direction: column; padding-top: var(--s-4); border-top: 2px solid var(--ink-900); transition: border-color .7s var(--ease-soft); }
+.value__no { display: block; font-size: clamp(3.25rem, 2.4rem + 3.4vw, 5rem); font-weight: 600; line-height: .95; letter-spacing: -.01em; color: var(--ink-900); font-variant-numeric: tabular-nums; transition: color .7s var(--ease-soft); }
+.value h3 { margin-top: var(--s-3); font-size: 1.375rem; font-weight: 600; line-height: 1.15; letter-spacing: -.01em; }
+.value__app { margin-top: 6px; font-size: var(--fs-xs); font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--red-strong); }
+.value p { margin-top: var(--s-2); color: var(--text-2); font-size: var(--fs-sm); line-height: 1.6; }
+.value__meta { margin-top: auto; padding-top: var(--s-3); font-size: var(--fs-xs); color: var(--text-3); }
+.value.is-lit { border-color: var(--red); }
+.value.is-lit .value__no { color: var(--red); }
+
+/* Sahne: açık daire, taşan telefonlar, gerçek ikonlar */
+.orbit { position: relative; width: min(100%, 540px); aspect-ratio: 1 / 1.08; margin-inline: auto; }
+.orbit__circle { position: absolute; left: 0; right: 0; bottom: 0; aspect-ratio: 1; border-radius: 50%; background: radial-gradient(70% 60% at 70% 20%, rgba(228, 35, 32, .16), transparent 65%), radial-gradient(60% 60% at 20% 90%, rgba(181, 180, 181, .40), transparent 70%), #E9E9EB; }
+.orbit__circle::before { content: ""; position: absolute; inset: 7%; border-radius: 50%; border: 1px solid rgba(17, 17, 17, .08); }
+.orbit__circle::after { content: ""; position: absolute; inset: 19%; border-radius: 50%; border: 1px solid rgba(17, 17, 17, .06); }
+.device { position: absolute; width: 38%; aspect-ratio: 9 / 18.5; padding: 2.4%; border-radius: 13% / 6.4%; background: #0B0B0C; box-shadow: 0 28px 50px rgba(17, 17, 17, .45), inset 0 0 0 1.5px #3A3A3D; z-index: 2; }
+.device::before { content: ""; position: absolute; z-index: 3; left: 50%; top: 2.6%; width: 28%; height: 3.4%; transform: translateX(-50%); border-radius: 99px; background: #0B0B0C; }
+.device__screen { width: 100%; height: 100%; overflow: hidden; border-radius: 10.5% / 5.2%; background: var(--white); }
+.device__screen img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: top; }
+.device--a { left: 15%; top: 31%; transform: rotate(-4deg); animation: drift 9s var(--ease-soft) infinite alternate; }
+.device--b { right: 13%; top: 5%; transform: rotate(3deg); animation: drift 11s var(--ease-soft) -4s infinite alternate; }
+@keyframes drift { from { translate: 0 0; } to { translate: 0 -10px; } }
+
+.chip-app { position: absolute; z-index: 4; width: 15%; aspect-ratio: 1; padding: 0; border: 0; border-radius: 24%; overflow: hidden; background: var(--white); box-shadow: 0 14px 30px rgba(17, 17, 17, .3); transition: transform .8s var(--ease-soft), box-shadow .8s var(--ease-soft); }
+.chip-app img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.chip-app--musavir { left: 7.1%; top: 14%; }
+.chip-app--mevzuat { left: 89.5%; top: 31%; }
+.chip-app--entegre { left: -4.5%; top: 62.6%; }
+.chip-app--earsiv { left: 67.5%; top: 86.8%; }
+.chip-app.is-lit { transform: scale(1.14); box-shadow: 0 0 0 3px var(--red), 0 18px 34px rgba(228, 35, 32, .35); }
+
+@media (max-width: 600px) { .orbit { zoom: .8; } }
+@media (prefers-reduced-motion: reduce) { .device--a, .device--b { animation: none; } }
+
+/* ===== Cihaz: iPhone 17 (düz alüminyum kenar, ince çerçeve, Dynamic Island) ===== */
+.orbit { container-type: inline-size; }
+.device { aspect-ratio: 9 / 19.5; padding: .8%; border-radius: 15% / 6.9%; background: #0B0B0D;
+  box-shadow: 0 0 0 1.5px #6E6F75, 0 0 0 3px #202023, 0 34px 60px -14px rgba(17, 17, 17, .5), inset 0 0 0 1px rgba(255, 255, 255, .07); }
+.device::before { top: 3.1%; width: 29%; height: 3.3%; }   /* Dynamic Island */
+.device::after { content: ""; position: absolute; z-index: -1; top: 0; bottom: 0; left: -1.1%; right: -1.1%; pointer-events: none;
+  background:
+    linear-gradient(#5B5C62, #5B5C62) left 0 top 13% / 1.08% 3.2% no-repeat,
+    linear-gradient(#5B5C62, #5B5C62) left 0 top 19.5% / 1.08% 6% no-repeat,
+    linear-gradient(#5B5C62, #5B5C62) left 0 top 27% / 1.08% 6% no-repeat,
+    linear-gradient(#5B5C62, #5B5C62) right 0 top 22% / 1.08% 10% no-repeat; }
+.device__screen { position: relative; border-radius: 12.6% / 5.8%; }
+.device__screen::before { content: "9:41"; position: absolute; z-index: 2; left: 11%; top: 2.5%; font-size: 1.75cqw; line-height: 1; font-weight: 600; letter-spacing: .01em; color: #fff; }
+.device__screen::after { content: ""; position: absolute; z-index: 2; right: 9%; top: 2.45%; width: 21%; height: 1.5%;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 12'%3E%3Cg fill='%23fff'%3E%3Crect x='0' y='8' width='3' height='4' rx='.8'/%3E%3Crect x='5' y='6' width='3' height='6' rx='.8'/%3E%3Crect x='10' y='4' width='3' height='8' rx='.8'/%3E%3Crect x='15' y='2' width='3' height='10' rx='.8'/%3E%3Ccircle cx='31' cy='10.2' r='1.4'/%3E%3C/g%3E%3Cg fill='none' stroke='%23fff' stroke-width='1.7' stroke-linecap='round'%3E%3Cpath d='M24.6 5.4a9.6 9.6 0 0 1 12.8 0'/%3E%3Cpath d='M27 7.9a6.3 6.3 0 0 1 8 0'/%3E%3Crect x='42' y='1.5' width='15' height='9' rx='2.8' opacity='.55'/%3E%3C/g%3E%3Crect x='43.6' y='3.1' width='11.8' height='5.8' rx='1.7' fill='%23fff'/%3E%3Crect x='58' y='4.4' width='1.4' height='3.2' rx='.7' fill='%23fff' opacity='.55'/%3E%3C/svg%3E") center / contain no-repeat; }
+.device__screen img { object-fit: fill; }   /* ekran görüntüsü cihazın ekran oranına yakın; yanlardan kırpma yok */
+
+/* ===== iPhone 17: ince çerçeve ===== */
+.device { padding: .55%; box-shadow: 0 0 0 1px #84858B, 0 30px 55px -14px rgba(17, 17, 17, .5); }
+.device::before { top: 2.4%; width: 29%; height: 3.1%; }
+.device__screen { border-radius: 13.6% / 6.2%; }
+.device__screen--light::before { color: #111; }
+.device__screen--light::after { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 12'%3E%3Cg fill='%23111'%3E%3Crect x='0' y='8' width='3' height='4' rx='.8'/%3E%3Crect x='5' y='6' width='3' height='6' rx='.8'/%3E%3Crect x='10' y='4' width='3' height='8' rx='.8'/%3E%3Crect x='15' y='2' width='3' height='10' rx='.8'/%3E%3Ccircle cx='31' cy='10.2' r='1.4'/%3E%3C/g%3E%3Cg fill='none' stroke='%23111' stroke-width='1.7' stroke-linecap='round'%3E%3Cpath d='M24.6 5.4a9.6 9.6 0 0 1 12.8 0'/%3E%3Cpath d='M27 7.9a6.3 6.3 0 0 1 8 0'/%3E%3Crect x='42' y='1.5' width='15' height='9' rx='2.8' opacity='.5'/%3E%3C/g%3E%3Crect x='43.6' y='3.1' width='11.8' height='5.8' rx='1.7' fill='%23111'/%3E%3Crect x='58' y='4.4' width='1.4' height='3.2' rx='.7' fill='%23111' opacity='.5'/%3E%3C/svg%3E"); }
+
+/* ===== Hattat Müşavir uygulama ekranları (390 px genişlikli tasarımın ölçekli çizimi; 1 birim = U) ===== */
+.ms { --u: .0935cqw; position: absolute; inset: 0; box-sizing: border-box; display: flex; flex-direction: column; gap: calc(var(--u) * 12); padding: calc(var(--u) * 60) calc(var(--u) * 14) calc(var(--u) * 14); background: #E9EEFD; color: #1D2447; font-size: calc(var(--u) * 12); line-height: 1.25; overflow: hidden; }
+.ms svg { width: calc(var(--u) * 18); height: calc(var(--u) * 18); flex: none; fill: none; stroke: currentColor; stroke-width: 1.9; stroke-linecap: round; stroke-linejoin: round; }
+.ms-card { background: #fff; border-radius: calc(var(--u) * 18); padding: calc(var(--u) * 14); box-shadow: 0 calc(var(--u) * 2) calc(var(--u) * 8) rgba(40, 60, 140, .06); }
+.ms-card h4 { display: flex; align-items: center; gap: calc(var(--u) * 8); margin: 0 0 calc(var(--u) * 10); padding-bottom: calc(var(--u) * 8); border-bottom: 1px solid #ECEFF8; font-size: calc(var(--u) * 13); font-weight: 600; }
+.ms-user { display: flex; align-items: center; gap: calc(var(--u) * 8); margin: 0 0 calc(var(--u) * 12); font-size: calc(var(--u) * 14); }
+.ms-user b { font-weight: 500; flex: 1; }
+.ms-out { width: calc(var(--u) * 20); height: calc(var(--u) * 20); }
+.ms-tiles { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: calc(var(--u) * 8); }
+.ms-tiles li { display: grid; justify-items: center; gap: calc(var(--u) * 5); font-size: calc(var(--u) * 10); font-weight: 500; }
+.ms-tile { display: grid; place-items: center; width: calc(var(--u) * 58); height: calc(var(--u) * 58); border-radius: calc(var(--u) * 16); background: #E6EBFF; }
+.ms-tile svg { width: calc(var(--u) * 30); height: calc(var(--u) * 30); stroke: none; }
+.ms-sgk { font-size: calc(var(--u) * 15); font-weight: 800; font-style: italic; color: #1B66B3; letter-spacing: -.01em; }
+.ms-list { list-style: none; margin: 0; padding: 0; display: grid; gap: calc(var(--u) * 8); }
+.ms-list li { display: flex; align-items: center; gap: calc(var(--u) * 10); min-height: calc(var(--u) * 40); padding: 0 calc(var(--u) * 10); border-radius: calc(var(--u) * 12); background: #EDF0FF; font-size: calc(var(--u) * 12); }
+.ms-dot { width: calc(var(--u) * 20); height: calc(var(--u) * 20); flex: none; border-radius: 50%; background: radial-gradient(circle, #fff 0 28%, var(--c) 30% 100%); }
+.ms-todo { display: flex; align-items: center; gap: calc(var(--u) * 10); padding: calc(var(--u) * 8); border-radius: calc(var(--u) * 12); background: #F3F5FD; }
+.ms-date { display: grid; justify-items: center; flex: none; padding: calc(var(--u) * 6) calc(var(--u) * 8); border-radius: calc(var(--u) * 8); background: #E3F4DD; color: #3A7D2B; font-size: calc(var(--u) * 8); font-weight: 700; letter-spacing: .04em; line-height: 1.1; }
+.ms-date em { font-style: normal; font-size: calc(var(--u) * 15); }
+.ms-todo b { display: block; font-size: calc(var(--u) * 12); font-weight: 600; }
+.ms-todo small { display: block; margin-top: calc(var(--u) * 2); font-size: calc(var(--u) * 9); color: #7A82A3; }
+.ms-todo > div { flex: 1; min-width: 0; }
+.ms-go { display: grid; place-items: center; width: calc(var(--u) * 26); height: calc(var(--u) * 26); border-radius: 50%; background: #1D2447; color: #fff; }
+.ms-go svg { width: calc(var(--u) * 14); height: calc(var(--u) * 14); }
+
+.ms--login { justify-content: center; align-items: center; gap: calc(var(--u) * 34); padding: calc(var(--u) * 60) calc(var(--u) * 22) calc(var(--u) * 40); background: #DFE4F2; }
+.ms-logo { display: grid; place-items: center; width: calc(var(--u) * 104); height: calc(var(--u) * 104); border-radius: 50%; background: #E5252A; color: #fff; font-size: calc(var(--u) * 44); font-weight: 700; letter-spacing: -.01em; box-shadow: 0 calc(var(--u) * 6) calc(var(--u) * 16) rgba(229, 37, 42, .3); }
+.ms-form { display: grid; gap: calc(var(--u) * 8); width: 100%; padding: calc(var(--u) * 22) calc(var(--u) * 18) calc(var(--u) * 24); border-radius: calc(var(--u) * 24); background: rgba(255, 255, 255, .55); }
+.ms-form label { font-size: calc(var(--u) * 11); color: #8089A8; }
+.ms-input { display: flex; align-items: center; justify-content: space-between; height: calc(var(--u) * 44); padding: 0 calc(var(--u) * 12); margin-bottom: calc(var(--u) * 6); border-radius: calc(var(--u) * 12); background: #E4E7EF; color: #4A5272; }
+.ms-input svg { width: calc(var(--u) * 18); height: calc(var(--u) * 18); }
+.ms-input .ms-ok { stroke: #2FA45B; }
+.ms-btn { display: grid; place-items: center; height: calc(var(--u) * 46); margin-top: calc(var(--u) * 10); border-radius: calc(var(--u) * 12); background: #D8232A; color: #fff; font-size: calc(var(--u) * 12); font-weight: 600; letter-spacing: .12em; box-shadow: 0 calc(var(--u) * 6) calc(var(--u) * 14) rgba(216, 35, 42, .35); }

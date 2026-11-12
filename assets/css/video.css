@@ -1,0 +1,85 @@
+/* Videolarımız. Renk sırası: koyu (başlık) → beyaz (liste) → gri (çağrı) → koyu footer */
+
+.vtools { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--s-4); margin-bottom: var(--s-7); }
+
+.vchips { display: flex; flex-wrap: wrap; gap: 8px; }
+
+.vchip { display: inline-flex; align-items: center; gap: 8px; height: 42px; padding: 0 16px; border: 1px solid var(--line); border-radius: 99px; background: var(--white); font-size: var(--fs-sm); font-weight: 600; color: var(--text); transition: border-color .4s var(--ease-soft), background .4s var(--ease-soft), color .4s var(--ease-soft); }
+
+.vchip span { padding: 1px 8px; border-radius: 99px; background: var(--surface); color: var(--text-2); font-size: var(--fs-xs); }
+
+.vchip:hover { background: var(--white); border-color: var(--red); color: var(--red-strong); }
+
+.vchip:hover span { background: rgba(255, 255, 255, .16); color: var(--white); }
+
+.vchip.is-dim { opacity: .4; }
+
+.vchip:focus-visible { outline: 2px solid var(--red); outline-offset: 2px; }
+
+
+
+/* Ürün bölümleri: başlık + video ızgarası */
+
+.vblock { scroll-margin-top: 96px; padding-top: var(--s-7); margin-top: var(--s-7); border-top: 2px solid var(--ink-900); }
+
+.vblock[hidden] { display: none; }
+
+.vblock:first-of-type { margin-top: 0; }
+
+.vblock__head { display: flex; flex-wrap: wrap; align-items: baseline; gap: var(--s-3) var(--s-4); margin-bottom: var(--s-6); }
+
+.vblock__head h2 { font-size: var(--fs-h2); line-height: 1.15; letter-spacing: -.01em; font-weight: 600; }
+
+.vblock__count { color: var(--red); font-size: var(--fs-sm); font-weight: 600; letter-spacing: .08em; text-transform: uppercase; }
+
+
+
+.vlist { display: grid; gap: var(--s-6) var(--s-5); grid-template-columns: 1fr; }
+
+@media (min-width: 560px) { .vlist { grid-template-columns: repeat(2, 1fr); } }
+
+@media (min-width: 860px) { .vlist { grid-template-columns: repeat(3, 1fr); } }
+
+@media (min-width: 1180px) { .vlist { grid-template-columns: repeat(4, 1fr); } }
+
+.vlist .vfig[hidden] { display: none; }
+
+.vlist .vfig { gap: var(--s-3); }
+
+.vlist .vfig figcaption { font-size: var(--fs-sm); font-weight: 600; line-height: 1.35; }
+
+.vlist .vin { margin-top: 0; max-width: none; }
+
+.vlist .cover__t { font-size: 1rem; max-width: 100%; padding-right: 52px; }
+
+.vlist__more { display: flex; justify-content: center; margin-top: var(--s-6); }
+
+.vlist__more .btn[hidden] { display: none; }
+
+
+/* Tekil video sayfası */
+.vdetay { display: grid; gap: var(--s-7); align-items: start; }
+@media (min-width: 960px) { .vdetay { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: var(--s-8); } }
+.vdetay__side { display: grid; gap: var(--s-6); align-content: start; }
+.vdetay__text p { color: var(--text-2); font-size: var(--fs-md, 1rem); line-height: 1.8; }
+.vdetay__actions { display: flex; flex-wrap: wrap; gap: var(--s-3); }
+.vdetay__actions svg { width: 16px; height: 16px; }
+.vrels { display: grid; gap: var(--s-5); grid-template-columns: 1fr; }
+@media (min-width: 560px) { .vrels { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1000px) { .vrels { grid-template-columns: repeat(4, 1fr); } }
+.vrel { display: grid; gap: var(--s-3); align-content: start; color: inherit; }
+.vrel__img { position: relative; display: block; aspect-ratio: 16 / 9; border-radius: 10px; overflow: hidden; background: var(--ink-900); }
+.vrel__img .vcard__play { width: 40px; height: 40px; margin: 0; left: auto; top: auto; right: 12px; bottom: 12px; }
+.vrel__img .vcard__play svg { width: 16px; height: 16px; }
+.vrel__t { font-size: var(--fs-sm); font-weight: 600; line-height: 1.35; transition: color .4s var(--ease-soft); }
+.vrel:hover .vrel__t { color: var(--red); }
+.vrel:hover .cover { transform: scale(1.03); }
+.vfig__more { justify-self: start; font-size: var(--fs-xs); font-weight: 600; letter-spacing: .06em; color: var(--text-2); }
+.vfig__more:hover { color: var(--red); }
+
+/* Video kapakları: iç boşluk geniş, logo / ürün adı / başlık / oynat arasında nefes payı */
+.vlist .vin { aspect-ratio: 16 / 10; }
+.vlist .cover { padding: 22px 24px; gap: 8px; }
+.vlist .cover::before { top: 22px; left: 24px; height: 24%; max-height: 44px; }
+.vlist .cover__t { padding-right: 64px; line-height: 1.35; }
+.vlist .vin__btn .vcard__play { right: 20px; bottom: 20px; width: 46px; height: 46px; }
